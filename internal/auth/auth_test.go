@@ -19,7 +19,7 @@ func TestGetAPIKey(t *testing.T) {
 	}{
 		"no fail": {
 			input:    noFailHeader,
-			expected: "123456789 ForceFail",
+			expected: "123456789",
 		},
 		"empty header": {
 			input:         http.Header{},
