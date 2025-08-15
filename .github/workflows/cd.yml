@@ -29,5 +29,8 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
-      - name: Use gcloud CLI
+      - name: Submit build to GC
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/sigma-hallway-469118-u6/notely-ar-repo/notely:latest .
+
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/sigma-hallway-469118-u6/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project sigma-hallway-469118-u6 --max-instances=4
